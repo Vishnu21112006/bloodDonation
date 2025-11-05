@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Donation Camp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>🏥 Blood Donation Camp</h1>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <a href="{{ url_for('register') }}">🩸 Register as Donor</a><br><br>
+    <a href="{{ url_for('login') }}">👨‍⚕️ Hospital Staff Login</a>
+</div>
+</body>
+</html>

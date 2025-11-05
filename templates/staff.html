@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>🏥 Hospital Dashboard — ID: {{ hospital_id }}</h2>
+    <p>Welcome, {{ staff }}</p>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Blood Group</th>
+            <th>Location</th>
+        </tr>
+        {% if donors %}
+            {% for d in donors %}
+            <tr>
+                <td>{{ d.name }}</td>
+                <td>{{ d.email }}</td>
+                <td>{{ d.phone }}</td>
+                <td>{{ d.blood_group }}</td>
+                <td>{{ d.location }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr><td colspan="5">No donors registered yet.</td></tr>
+        {% endif %}
+    </table>
+    <br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+</body>
+</html>
